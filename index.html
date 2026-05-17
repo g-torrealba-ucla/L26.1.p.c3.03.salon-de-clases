@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso</title>
+</head>
+
+<body>
+
+  <section id="body">
+    <h2>Salón de Clases</h2>
+    <button id="body_btNuevoEstudiante">Nuevo Estudiante</button>
+    <hr>
+    <table> 
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+      <tbody id="body_Estudiantes"></tbody>
+    </table>
+    <hr>
+    <div>
+      Cantidad de estudiantes procesados: <span id="body_lblCntEstudiantesProcesados">0</span>
+    </div>
+    <div>
+      La última edad es: <span id="body_lblUltimaEdad">0</span>
+    </div>
+    <div>
+      Nombres con edad superior al último: <span id="body_lblNombresEdadSuperiorUltimo">0</span>
+    </div>
+    <div>
+      Procesos usados: forEach, push, length
+    </div>
+  </section>
+
+  <section id="Estudiante" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
+    <h5 id="Estudiante_lblEstudiante">Procesar Estudiante</h5>
+    <div>
+      <label>Nombre:
+        <input type="text" id="Estudiante_inNombre" placeholder="Nombre del Estudiante">
+      </label>
+    </div>
+    <div>
+      <label>Edad:
+        <input type="number" id="Estudiante_inEdad" placeholder="Ej: 25">
+      </label>
+    </div>
+    <br>
+    <button id="Estudiante_btCancelar">Cancelar</button>
+    <button id="Estudiante_btAceptar">Aceptar</button>
+  </section>
+
+  <script type="module">
+    import Cl_cSalon from "./dist/controllers/Cl_cSalon.js";
+    import Cl_cEstudiante from "./dist/controllers/Cl_cEstudiante.js";
+
+    // Importamos SOLO las vistas planas
+    import Cl_vSalon from "./dist/views/Cl_vSalon.js";
+    import Cl_vEstudiante from "./dist/views/Cl_vEstudiante.js";
+
+    // 1. Instanciamos las vistas
+    const vistaSalon = new Cl_vSalon();
+    const vistaEstudiante = new Cl_vEstudiante();
+
+    // 2. Inyectamos las vistas en los controladores (¡La magia ocurre aquí!)
+    const controladorEstudiante = new Cl_cEstudiante(vistaEstudiante);
+    new Cl_cSalon(vistaSalon, controladorEstudiante);
+  </script>
+</body>
+
+</html>
