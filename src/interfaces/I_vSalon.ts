@@ -9,10 +9,14 @@ export interface I_vSalon {
     cntEstudiantesProcesados,
     ultimaEdad,
     nombresEdadSuperiorUltimo,
+    cntEstudiantesMayoresEdad,
+    generoComparacion,
   }: {
     Estudiantes: Cl_mEstudiante[];
     cntEstudiantesProcesados: number;
     ultimaEdad: number;
     nombresEdadSuperiorUltimo: string[];
+    cntEstudiantesMayoresEdad: number;
+    generoComparacion: string;
   }): void;
 }

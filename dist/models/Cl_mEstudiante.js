@@ -1,9 +1,11 @@
 export default class Cl_mEstudiante {
     _nombre = "";
     _edad = 0;
-    constructor({ nombre, edad }) {
+    _sexo = "";
+    constructor({ nombre, edad, sexo, }) {
         this.nombre = nombre;
         this.edad = edad;
+        this.sexo = sexo;
     }
     set nombre(value) {
         this._nombre = value;
@@ -16,6 +18,12 @@ export default class Cl_mEstudiante {
     }
     get edad() {
         return this._edad;
+    }
+    set sexo(value) {
+        this._sexo = value.trim();
+    }
+    get sexo() {
+        return this._sexo;
     }
 }
 //# sourceMappingURL=Cl_mEstudiante.js.map

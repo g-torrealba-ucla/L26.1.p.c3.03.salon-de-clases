@@ -1,10 +1,20 @@
 export default class Cl_mEstudiante {
   private _nombre: string = "";
   private _edad: number = 0;
+  private _sexo: string = "";
 
-  constructor({ nombre, edad }: { nombre: string; edad: number }) {
+  constructor({
+    nombre,
+    edad,
+    sexo,
+  }: {
+    nombre: string;
+    edad: number;
+    sexo: string;
+  }) {
     this.nombre = nombre;
     this.edad = edad;
+    this.sexo = sexo;
   }
 
   set nombre(value: string) {
@@ -19,5 +29,12 @@ export default class Cl_mEstudiante {
   }
   get edad(): number {
     return this._edad;
+  }
+
+  set sexo(value: string) {
+    this._sexo = value.trim();
+  }
+  get sexo(): string {
+    return this._sexo;
   }
 }

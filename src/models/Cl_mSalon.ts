@@ -24,4 +24,36 @@ export default class Cl_mSalon {
     });
     return nombres;
   }
+  cantidadEstudiantesMayoresEdad(): number {
+    let cnt = 0;
+    this.estudiantes.forEach((Estudiante) => {
+      if (Estudiante.edad >= 18) cnt += 1;
+    });
+    return cnt;
+  }
+
+  cantidadHombres(): number {
+    let cnt = 0;
+    this.estudiantes.forEach((Estudiante) => {
+      if (Estudiante.sexo.toLowerCase() === "hombre") cnt += 1;
+    });
+    return cnt;
+  }
+
+
+  cantidadMujeres(): number {
+    let cnt = 0;
+    this.estudiantes.forEach((Estudiante) => {
+      if (Estudiante.sexo.toLowerCase() === "mujer") cnt += 1;
+    });
+    return cnt;
+  }
+
+  comparacionGenero(): string {
+    const hombres = this.cantidadHombres();
+    const mujeres = this.cantidadMujeres();
+    if (hombres > mujeres) return "hombres";
+    if (mujeres > hombres) return "mujeres";
+    return "por igual";
+  }
 }

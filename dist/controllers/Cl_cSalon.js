@@ -19,22 +19,25 @@ export default class Cl_cSalon {
     }
     cargarEstudiantesIniciales() {
         const alumnos = [
-            { nombre: "Luis", edad: 16 },
-            { nombre: "Ana", edad: 19 },
-            { nombre: "José", edad: 20 },
-            { nombre: "Carmen", edad: 18 },
+            { nombre: "Luis", edad: 16, sexo: "hombre" },
+            { nombre: "Ana", edad: 19, sexo: "mujer" },
+            { nombre: "José", edad: 20, sexo: "hombre" },
+            { nombre: "Carmen", edad: 18, sexo: "mujer" },
         ];
         alumnos.forEach((alumno) => {
             this.mSalon.agregarEstudiante(new Cl_mEstudiante({
                 nombre: alumno.nombre,
                 edad: alumno.edad,
+                sexo: alumno.sexo,
             }));
         });
         this.vSalon.mostrarEstudiantes({
-            Estudiantes: this.mSalon.Estudiantes,
+            Estudiantes: this.mSalon.estudiantes,
             cntEstudiantesProcesados: this.mSalon.cantidadEstudiantesProcesados(),
             ultimaEdad: this.mSalon.ultimaEdad(),
             nombresEdadSuperiorUltimo: this.mSalon.nombresEdadSuperiorUltimo(),
+            cntEstudiantesMayoresEdad: this.mSalon.cantidadEstudiantesMayoresEdad(),
+            generoComparacion: this.mSalon.comparacionGenero(),
         });
     }
     procesar1Estudiante() {
@@ -42,10 +45,12 @@ export default class Cl_cSalon {
             if (Estudiante !== null) {
                 this.mSalon.agregarEstudiante(Estudiante);
                 this.vSalon.mostrarEstudiantes({
-                    Estudiantes: this.mSalon.Estudiantes,
+                    Estudiantes: this.mSalon.estudiantes,
                     cntEstudiantesProcesados: this.mSalon.cantidadEstudiantesProcesados(),
                     ultimaEdad: this.mSalon.ultimaEdad(),
                     nombresEdadSuperiorUltimo: this.mSalon.nombresEdadSuperiorUltimo(),
+                    cntEstudiantesMayoresEdad: this.mSalon.cantidadEstudiantesMayoresEdad(),
+                    generoComparacion: this.mSalon.comparacionGenero(),
                 });
             }
         });

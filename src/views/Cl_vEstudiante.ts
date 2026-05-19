@@ -3,6 +3,7 @@ import { I_vEstudiante } from "../interfaces/I_vEstudiante";
 export default class Cl_cEstudiantePlain implements I_vEstudiante {
   inNombre: HTMLInputElement;
   inEdad: HTMLInputElement;
+  inSexo: HTMLSelectElement;
   btCancelar: HTMLButtonElement;
   btAceptar: HTMLButtonElement;
   vista: HTMLElement;
@@ -14,6 +15,9 @@ export default class Cl_cEstudiantePlain implements I_vEstudiante {
     this.inEdad = document.getElementById(
       "Estudiante_inEdad",
     ) as HTMLInputElement;
+    this.inSexo = document.getElementById(
+      "Estudiante_inSexo",
+    ) as HTMLSelectElement;
     this.btCancelar = document.getElementById(
       "Estudiante_btCancelar",
     ) as HTMLButtonElement;
@@ -26,6 +30,9 @@ export default class Cl_cEstudiantePlain implements I_vEstudiante {
   }
   get edad(): number {
     return parseInt(this.inEdad.value.trim());
+  }
+  get sexo(): string {
+    return this.inSexo.value;
   }
 
   onAceptar(callback: () => void): void {

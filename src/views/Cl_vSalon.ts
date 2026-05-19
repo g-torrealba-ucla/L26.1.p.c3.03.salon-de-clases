@@ -7,6 +7,8 @@ export default class Cl_cSalon implements I_vSalon {
   lblCntEstudiantesProcesados: HTMLLabelElement;
   lblUltimaEdad: HTMLLabelElement;
   lblNombresEdadSuperiorUltimo: HTMLLabelElement;
+  lblCntEstudiantesMayoresEdad: HTMLLabelElement;
+  lblGeneroComparacion: HTMLLabelElement;
   btNuevoEstudiante: HTMLButtonElement;
   tbEstudiantes: HTMLTableElement;
   vista: HTMLElement | null;
@@ -27,6 +29,12 @@ export default class Cl_cSalon implements I_vSalon {
     this.tbEstudiantes = document.getElementById(
       "body_Estudiantes",
     ) as HTMLTableElement;
+    this.lblCntEstudiantesMayoresEdad = document.getElementById(
+      "body_lblCntEstudiantesMayoresEdad",
+    ) as HTMLLabelElement;
+    this.lblGeneroComparacion = document.getElementById(
+      "body_lblGeneroComparacion",
+    ) as HTMLLabelElement;
   }
   onNuevoEstudiante(callback: () => void): void {
     this.btNuevoEstudiante.onclick = callback;
@@ -36,11 +44,15 @@ export default class Cl_cSalon implements I_vSalon {
     cntEstudiantesProcesados,
     ultimaEdad,
     nombresEdadSuperiorUltimo,
+    cntEstudiantesMayoresEdad,
+    generoComparacion,
   }: {
     Estudiantes: Cl_mEstudiante[];
     cntEstudiantesProcesados: number;
     ultimaEdad: number;
-    nombresEdadSuperiorUltimo: string;
+    nombresEdadSuperiorUltimo: string[];
+    cntEstudiantesMayoresEdad: number;
+    generoComparacion: string;
   }): void {
     this.tbEstudiantes.innerHTML = "";
     Estudiantes.forEach((Estudiante) => {
@@ -48,13 +60,18 @@ export default class Cl_cSalon implements I_vSalon {
       tr.innerHTML = html`
         <td>${Estudiante.nombre}</td>
         <td>${Estudiante.edad}</td>
+        <td>${Estudiante.sexo}</td>
       `;
       this.tbEstudiantes.appendChild(tr);
     });
     this.lblCntEstudiantesProcesados.innerHTML =
       cntEstudiantesProcesados.toString();
     this.lblUltimaEdad.innerHTML = ultimaEdad.toString();
-    this.lblNombresEdadSuperiorUltimo.innerHTML = nombresEdadSuperiorUltimo;
+    this.lblNombresEdadSuperiorUltimo.innerHTML =
+      nombresEdadSuperiorUltimo.join(", ");
+    this.lblCntEstudiantesMayoresEdad.innerHTML =
+      cntEstudiantesMayoresEdad.toString();
+    this.lblGeneroComparacion.innerHTML = generoComparacion;
   }
   mostrar(): void {
     if (this.vista === null) return;

@@ -24,6 +24,7 @@ export default class Cl_cEstudiante {
       new Cl_mEstudiante({
         nombre: this.vista.nombre,
         edad: this.vista.edad,
+        sexo: this.vista.sexo,
       }),
     );
     this.vista.ocultar();

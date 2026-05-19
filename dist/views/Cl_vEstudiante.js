@@ -1,6 +1,7 @@
 export default class Cl_cEstudiantePlain {
     inNombre;
     inEdad;
+    inSexo;
     btCancelar;
     btAceptar;
     vista;
@@ -8,6 +9,7 @@ export default class Cl_cEstudiantePlain {
         this.vista = document.getElementById("Estudiante");
         this.inNombre = document.getElementById("Estudiante_inNombre");
         this.inEdad = document.getElementById("Estudiante_inEdad");
+        this.inSexo = document.getElementById("Estudiante_inSexo");
         this.btCancelar = document.getElementById("Estudiante_btCancelar");
         this.btAceptar = document.getElementById("Estudiante_btAceptar");
     }
@@ -16,6 +18,9 @@ export default class Cl_cEstudiantePlain {
     }
     get edad() {
         return parseInt(this.inEdad.value.trim());
+    }
+    get sexo() {
+        return this.inSexo.value;
     }
     onAceptar(callback) {
         this.btAceptar.onclick = callback;

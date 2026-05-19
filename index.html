@@ -13,11 +13,12 @@
     <h2>Salón de Clases</h2>
     <button id="body_btNuevoEstudiante">Nuevo Estudiante</button>
     <hr>
-    <table> 
+    <table>
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Edad</th>
+          <th>Sexo</th>
         </tr>
       </thead>
       <tbody id="body_Estudiantes"></tbody>
@@ -35,6 +36,12 @@
     <div>
       Procesos usados: forEach, push, length
     </div>
+    <div>
+      Cantidad de estudiantes mayores de edad: <span id="body_lblCntEstudiantesMayoresEdad">0</span>
+    </div>
+    <div>
+      Hay más: <span id="body_lblGeneroComparacion">por igual</span>
+    </div>
   </section>
 
   <section id="Estudiante" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
@@ -47,6 +54,14 @@
     <div>
       <label>Edad:
         <input type="number" id="Estudiante_inEdad" placeholder="Ej: 25">
+      </label>
+    </div>
+    <div>
+      <label>Sexo:
+        <select id="Estudiante_inSexo">
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+        </select>
       </label>
     </div>
     <br>

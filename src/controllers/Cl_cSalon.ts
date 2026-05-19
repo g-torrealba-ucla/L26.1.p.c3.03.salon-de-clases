@@ -26,10 +26,10 @@ export default class Cl_cSalon {
 
   private cargarEstudiantesIniciales() {
     const alumnos = [
-      { nombre: "Luis", edad: 16 },
-      { nombre: "Ana", edad: 19 },
-      { nombre: "José", edad: 20 },
-      { nombre: "Carmen", edad: 18 },
+      { nombre: "Luis", edad: 16, sexo: "hombre" },
+      { nombre: "Ana", edad: 19, sexo: "mujer" },
+      { nombre: "José", edad: 20, sexo: "hombre" },
+      { nombre: "Carmen", edad: 18, sexo: "mujer" },
     ];
 
     alumnos.forEach((alumno) => {
@@ -37,6 +37,7 @@ export default class Cl_cSalon {
         new Cl_mEstudiante({
           nombre: alumno.nombre,
           edad: alumno.edad,
+          sexo: alumno.sexo,
         }),
       );
     });
@@ -46,6 +47,8 @@ export default class Cl_cSalon {
       cntEstudiantesProcesados: this.mSalon.cantidadEstudiantesProcesados(),
       ultimaEdad: this.mSalon.ultimaEdad(),
       nombresEdadSuperiorUltimo: this.mSalon.nombresEdadSuperiorUltimo(),
+      cntEstudiantesMayoresEdad: this.mSalon.cantidadEstudiantesMayoresEdad(),
+      generoComparacion: this.mSalon.comparacionGenero(),
     });
   }
 
@@ -58,6 +61,9 @@ export default class Cl_cSalon {
           cntEstudiantesProcesados: this.mSalon.cantidadEstudiantesProcesados(),
           ultimaEdad: this.mSalon.ultimaEdad(),
           nombresEdadSuperiorUltimo: this.mSalon.nombresEdadSuperiorUltimo(),
+          cntEstudiantesMayoresEdad:
+            this.mSalon.cantidadEstudiantesMayoresEdad(),
+          generoComparacion: this.mSalon.comparacionGenero(),
         });
       }
     });

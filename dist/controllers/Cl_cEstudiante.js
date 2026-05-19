@@ -21,6 +21,7 @@ export default class Cl_cEstudiante {
         this.callback(new Cl_mEstudiante({
             nombre: this.vista.nombre,
             edad: this.vista.edad,
+            sexo: this.vista.sexo,
         }));
         this.vista.ocultar();
     }

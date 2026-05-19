@@ -3,6 +3,8 @@ export default class Cl_cSalon {
     lblCntEstudiantesProcesados;
     lblUltimaEdad;
     lblNombresEdadSuperiorUltimo;
+    lblCntEstudiantesMayoresEdad;
+    lblGeneroComparacion;
     btNuevoEstudiante;
     tbEstudiantes;
     vista;
@@ -13,24 +15,31 @@ export default class Cl_cSalon {
         this.lblUltimaEdad = document.getElementById("body_lblUltimaEdad");
         this.lblNombresEdadSuperiorUltimo = document.getElementById("body_lblNombresEdadSuperiorUltimo");
         this.tbEstudiantes = document.getElementById("body_Estudiantes");
+        this.lblCntEstudiantesMayoresEdad = document.getElementById("body_lblCntEstudiantesMayoresEdad");
+        this.lblGeneroComparacion = document.getElementById("body_lblGeneroComparacion");
     }
     onNuevoEstudiante(callback) {
         this.btNuevoEstudiante.onclick = callback;
     }
-    mostrarEstudiantes({ Estudiantes, cntEstudiantesProcesados, ultimaEdad, nombresEdadSuperiorUltimo, }) {
+    mostrarEstudiantes({ Estudiantes, cntEstudiantesProcesados, ultimaEdad, nombresEdadSuperiorUltimo, cntEstudiantesMayoresEdad, generoComparacion, }) {
         this.tbEstudiantes.innerHTML = "";
         Estudiantes.forEach((Estudiante) => {
             const tr = document.createElement("tr");
             tr.innerHTML = html `
         <td>${Estudiante.nombre}</td>
         <td>${Estudiante.edad}</td>
+        <td>${Estudiante.sexo}</td>
       `;
             this.tbEstudiantes.appendChild(tr);
         });
         this.lblCntEstudiantesProcesados.innerHTML =
             cntEstudiantesProcesados.toString();
         this.lblUltimaEdad.innerHTML = ultimaEdad.toString();
-        this.lblNombresEdadSuperiorUltimo.innerHTML = nombresEdadSuperiorUltimo;
+        this.lblNombresEdadSuperiorUltimo.innerHTML =
+            nombresEdadSuperiorUltimo.join(", ");
+        this.lblCntEstudiantesMayoresEdad.innerHTML =
+            cntEstudiantesMayoresEdad.toString();
+        this.lblGeneroComparacion.innerHTML = generoComparacion;
     }
     mostrar() {
         if (this.vista === null)
